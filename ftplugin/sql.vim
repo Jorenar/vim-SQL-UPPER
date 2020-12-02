@@ -160,6 +160,10 @@ function! s:upper(k)
   endif
 endfunction
 
-for k in s:keywords
-  exec "iabbrev <expr> <buffer> " . k . " <SID>upper('" . k . "')"
-endfor
+function! s:init()
+  for k in s:keywords
+    exec "iabbrev <expr> <buffer> " . k . " <SID>upper('" . k . "')"
+  endfor
+endfunction
+
+call <SID>init()
